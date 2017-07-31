@@ -19,4 +19,13 @@ public class RestServiceController {
 
         return this.repository.newUser(user);
     }
+
+    @RequestMapping(value="/user/authenticateUser",
+            method = RequestMethod.GET,
+            produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody User selecionar(@RequestParam("nameUser") String nameUser,
+                                         @RequestParam("passwordUser") String passwordUser){
+
+        return this.repository.authenticateUser(nameUser,passwordUser);
+    }
 }

@@ -1,6 +1,7 @@
 package br.com.connplace;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -26,5 +27,11 @@ public class UserRepository{
             return false;
         }
         return true;
+    }
+
+    public User authenticateUser(String nameUser, String passwordUser){
+
+        return jdbcTemplate.queryForObject(QueryRepository.getAuthenticateUser(),
+                        new BeanPropertyRowMapper<User>(User.class),nameUser,passwordUser);
     }
 }
