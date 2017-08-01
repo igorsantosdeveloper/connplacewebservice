@@ -1,8 +1,11 @@
 package br.com.connplace;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class LocationRepository {
@@ -38,6 +41,19 @@ public class LocationRepository {
         }catch (Exception e){
 
             return false;
+        }
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public List<Location> bringsLocations(){
+
+        try{
+
+            return jdbcTemplate.query(QueryRepository.getBringsLocations(),new BeanPropertyRowMapper(Location.class));
+        }catch (Exception e){
+
+            e.printStackTrace();
+            return null;
         }
     }
 }

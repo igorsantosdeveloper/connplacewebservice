@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/service")
 public class RestServiceController {
@@ -59,6 +61,15 @@ public class RestServiceController {
     public @ResponseBody boolean overlapLocation(@RequestBody Location location){
 
         return this.locationRepository.overlapLocation(location);
+    }
+
+    @RequestMapping(value="/location/bringsLocations",
+            method = RequestMethod.GET,
+            produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody List<Location> bringsLocations(){
+
+        return this.locationRepository.bringsLocations();
+
     }
     //End Location
 }
