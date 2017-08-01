@@ -39,6 +39,12 @@ public class QueryRepository {
                     "location_longitude," +
                     "user_id)" +
                     "VALUES(?,?,?)";
+
+    private static final String overlapLocation =
+            "UPDATE ccp_location " +
+                    "SET location_latitude = ?," +
+                    "location_longitude = ? " +
+                    "WHERE user_id = ?";
     //End Location
 
     //User
@@ -51,5 +57,7 @@ public class QueryRepository {
 
     //Location
     public static String getNewLocation(){ return QueryRepository.newLocation; }
+
+    public static String getOverlapLocation(){ return QueryRepository.overlapLocation; }
     //End Location
 }

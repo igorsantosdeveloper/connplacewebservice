@@ -25,4 +25,19 @@ public class LocationRepository {
             return false;
         }
     }
+
+    public boolean overlapLocation(Location location){
+
+        try{
+
+            jdbcTemplate.update(QueryRepository.getOverlapLocation(),
+                    location.getLatitude(),
+                    location.getLongitude(),
+                    location.getUser().getId());
+            return true;
+        }catch (Exception e){
+
+            return false;
+        }
+    }
 }

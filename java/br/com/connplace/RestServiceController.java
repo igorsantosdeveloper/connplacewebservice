@@ -51,5 +51,14 @@ public class RestServiceController {
 
         return this.locationRepository.newLocation(location);
     }
+
+    @RequestMapping(value="/location/overlapLocation",
+            method = RequestMethod.POST,
+            consumes= MediaType.APPLICATION_JSON_VALUE,
+            produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody boolean overlapLocation(@RequestBody Location location){
+
+        return this.locationRepository.overlapLocation(location);
+    }
     //End Location
 }
