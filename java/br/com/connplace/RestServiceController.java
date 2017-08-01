@@ -71,5 +71,15 @@ public class RestServiceController {
         return this.locationRepository.bringsLocations();
 
     }
+
+    @RequestMapping(value="/location/forwardListOfUsers",
+            method = RequestMethod.POST,
+            consumes= MediaType.APPLICATION_JSON_VALUE,
+            produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody List<User> forwardListOfUsers(@RequestBody DynamicQuery dynamicQuery){
+
+        return this.locationRepository.forwardListOfUsers(dynamicQuery.getForwardListOfUsers());
+    }
     //End Location
 }
+//SELECT user_name FROM ccp_user WHERE user_id = 1 OR user_id = 2

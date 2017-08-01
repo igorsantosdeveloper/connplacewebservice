@@ -56,4 +56,17 @@ public class LocationRepository {
             return null;
         }
     }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public List<User> forwardListOfUsers(String dynamicQuery){
+
+        try{
+
+            return jdbcTemplate.query(dynamicQuery,new BeanPropertyRowMapper(User.class));
+        }catch (Exception e){
+
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
