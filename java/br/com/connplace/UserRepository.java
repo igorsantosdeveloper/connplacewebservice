@@ -21,12 +21,12 @@ public class UserRepository{
                     user.getAge(),
                     user.getDateOfBirth(),
                     user.getSex());
+            return true;
         }catch (Exception e){
 
             e.printStackTrace();
             return false;
         }
-        return true;
     }
 
     public User authenticateUser(String nameUser, String passwordUser){
@@ -37,6 +37,7 @@ public class UserRepository{
                     new BeanPropertyRowMapper<User>(User.class), nameUser, passwordUser);
         }catch(Exception e){
 
+            e.printStackTrace();
             return new User(-1,"","",0,"","");
         }
     }
@@ -49,6 +50,7 @@ public class UserRepository{
                     new BeanPropertyRowMapper<User>(User.class), nameUser);
         }catch(Exception e){
 
+            e.printStackTrace();
             return new User(-1,"","",0,"","");
         }
     }

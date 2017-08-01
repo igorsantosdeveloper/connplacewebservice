@@ -20,4 +20,45 @@ public class Location {
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
+
+    public Location(){}
+
+    public Location(int id, double latitude, double longitude, User user) {
+        this.id = id;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.user = user;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

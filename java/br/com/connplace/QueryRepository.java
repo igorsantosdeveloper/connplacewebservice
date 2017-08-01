@@ -2,8 +2,10 @@ package br.com.connplace;
 
 public class QueryRepository {
 
+    //User
     private static final String newUser =
-            "INSERT INTO ccp_user(user_name," +
+            "INSERT INTO ccp_user" +
+                    "(user_name," +
                     "user_password," +
                     "user_age," +
                     "user_dateofbirth," +
@@ -28,10 +30,26 @@ public class QueryRepository {
                     "user_dateofbirth AS dateOfBirth," +
                     "user_sex AS sex" +
                     " FROM ccp_user WHERE user_name = ?";
+    //End User
 
+    //Location
+    private static final String newLocation =
+            "INSERT INTO ccp_location" +
+                    "(location_latitude," +
+                    "location_longitude," +
+                    "user_id)" +
+                    "VALUES(?,?,?)";
+    //End Location
+
+    //User
     public static String getNewUser(){ return QueryRepository.newUser; }
 
     public static String getAuthenticateUser(){ return QueryRepository.authenticateUser; }
 
     public static String getCheckNameUser(){ return QueryRepository.checkNameUser; }
+    //End User
+
+    //Location
+    public static String getNewLocation(){ return QueryRepository.newLocation; }
+    //End Location
 }
