@@ -20,7 +20,18 @@ public class QueryRepository {
                     " FROM ccp_user WHERE user_name = ?" +
                     " AND user_password = ?";
 
+    private static final String checkNameUser =
+            "SELECT user_id AS id," +
+                    "user_name AS name," +
+                    "user_password AS password," +
+                    "user_age AS age," +
+                    "user_dateofbirth AS dateOfBirth," +
+                    "user_sex AS sex" +
+                    " FROM ccp_user WHERE user_name = ?";
+
     public static String getNewUser(){ return QueryRepository.newUser; }
 
     public static String getAuthenticateUser(){ return QueryRepository.authenticateUser; }
+
+    public static String getCheckNameUser(){ return QueryRepository.checkNameUser; }
 }

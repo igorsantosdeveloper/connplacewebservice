@@ -33,7 +33,9 @@ public class User {
 
     public User(){}
 
-    public User(String name, String password, int age, String dateOfBirth, String sex) {
+    public User(int id,String name, String password, int age, String dateOfBirth, String sex) {
+
+        this.id = id;
         this.name = name;
         this.password = password;
         this.age = age;

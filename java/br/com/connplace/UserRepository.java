@@ -31,7 +31,25 @@ public class UserRepository{
 
     public User authenticateUser(String nameUser, String passwordUser){
 
-        return jdbcTemplate.queryForObject(QueryRepository.getAuthenticateUser(),
-                        new BeanPropertyRowMapper<User>(User.class),nameUser,passwordUser);
+        try {
+
+            return jdbcTemplate.queryForObject(QueryRepository.getAuthenticateUser(),
+                    new BeanPropertyRowMapper<User>(User.class), nameUser, passwordUser);
+        }catch(Exception e){
+
+            return new User(-1,"","",0,"","");
+        }
+    }
+
+    public User checkNameUser(String nameUser){
+
+        try {
+
+            return jdbcTemplate.queryForObject(QueryRepository.getCheckNameUser(),
+                    new BeanPropertyRowMapper<User>(User.class), nameUser);
+        }catch(Exception e){
+
+            return new User(-1,"","",0,"","");
+        }
     }
 }

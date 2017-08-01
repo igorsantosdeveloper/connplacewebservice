@@ -23,9 +23,17 @@ public class RestServiceController {
     @RequestMapping(value="/user/authenticateUser",
             method = RequestMethod.GET,
             produces=MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody User selecionar(@RequestParam("nameUser") String nameUser,
+    public @ResponseBody User authenticateUser(@RequestParam("nameUser") String nameUser,
                                          @RequestParam("passwordUser") String passwordUser){
 
         return this.repository.authenticateUser(nameUser,passwordUser);
+    }
+
+    @RequestMapping(value="/user/checkNameUser",
+            method = RequestMethod.GET,
+            produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody User checkNameUser(@RequestParam("nameUser") String nameUser){
+
+        return this.repository.checkNameUser(nameUser);
     }
 }
