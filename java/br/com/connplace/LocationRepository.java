@@ -49,7 +49,7 @@ public class LocationRepository {
 
         try{
 
-            return jdbcTemplate.query(QueryRepository.getBringsLocations(),new BeanPropertyRowMapper(Location.class));
+            return jdbcTemplate.query(QueryRepository.getBringsLocations(),new BeanPropertyRowMapper(BringsLocation.class));
         }catch (Exception e){
 
             e.printStackTrace();

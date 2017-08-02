@@ -49,7 +49,7 @@ public class QueryRepository {
     private static final String bringsLocations =
             "SELECT location_latitude AS latitude," +
                     "location_longitude AS longitude," +
-                    "user_id AS idUser " +
+                    "user_id AS user_id " +
                     "FROM ccp_location";
     //End Location
 

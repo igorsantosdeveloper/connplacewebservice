@@ -22,7 +22,7 @@ public class RestServiceController {
             consumes= MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody boolean newUser(@RequestBody User user){
-
+        System.out.println(user);
         return this.userRepository.newUser(user);
     }
 
@@ -82,4 +82,3 @@ public class RestServiceController {
     }
     //End Location
 }
-//SELECT user_name FROM ccp_user WHERE user_id = 1 OR user_id = 2

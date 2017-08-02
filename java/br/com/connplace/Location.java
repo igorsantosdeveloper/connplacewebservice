@@ -21,8 +21,6 @@ public class Location {
     @JoinColumn(name="user_id")
     private User user;
 
-    private int idUser;
-
     public Location(){}
 
     public Location(int id, double latitude, double longitude, User user) {
@@ -62,13 +60,5 @@ public class Location {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public int getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
     }
 }
