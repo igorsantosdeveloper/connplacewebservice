@@ -58,11 +58,11 @@ public class LocationRepository {
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    public List<User> forwardListOfUsers(String dynamicQuery){
+    public List<ForwardListOfUsers> forwardListOfUsers(String dynamicQuery){
 
         try{
 
-            return jdbcTemplate.query(dynamicQuery,new BeanPropertyRowMapper(User.class));
+            return jdbcTemplate.query(dynamicQuery,new BeanPropertyRowMapper(ForwardListOfUsers.class));
         }catch (Exception e){
 
             e.printStackTrace();

@@ -76,7 +76,7 @@ public class RestServiceController {
             method = RequestMethod.POST,
             consumes= MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody List<User> forwardListOfUsers(@RequestBody DynamicQuery dynamicQuery){
+    public @ResponseBody List<ForwardListOfUsers> forwardListOfUsers(@RequestBody DynamicQuery dynamicQuery){
 
         return this.locationRepository.forwardListOfUsers(dynamicQuery.getForwardListOfUsers());
     }
