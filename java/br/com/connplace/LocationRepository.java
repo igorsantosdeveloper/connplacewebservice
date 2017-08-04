@@ -69,4 +69,16 @@ public class LocationRepository {
             return null;
         }
     }
+
+    public BringsCoordinates bringsCoordinates(int idUser) {
+
+        try {
+            return jdbcTemplate.queryForObject(QueryRepository.getBringsCoordinates(),
+                    new BeanPropertyRowMapper<BringsCoordinates>(BringsCoordinates.class), idUser);
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            return new BringsCoordinates(0,0);
+        }
+    }
 }

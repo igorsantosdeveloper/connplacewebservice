@@ -22,7 +22,7 @@ public class RestServiceController {
             consumes= MediaType.APPLICATION_JSON_VALUE,
             produces=MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody boolean newUser(@RequestBody User user){
-        System.out.println(user);
+
         return this.userRepository.newUser(user);
     }
 
@@ -79,6 +79,15 @@ public class RestServiceController {
     public @ResponseBody List<ForwardListOfUsers> forwardListOfUsers(@RequestBody DynamicQuery dynamicQuery){
 
         return this.locationRepository.forwardListOfUsers(dynamicQuery.getForwardListOfUsers());
+    }
+
+    @RequestMapping(value="/location/bringsCoordinates",
+            method = RequestMethod.GET,
+            produces=MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody BringsCoordinates bringsCoordinates(@RequestParam("idUser") int idUser){
+
+        System.out.println(idUser);
+        return this.locationRepository.bringsCoordinates(idUser);
     }
     //End Location
 }

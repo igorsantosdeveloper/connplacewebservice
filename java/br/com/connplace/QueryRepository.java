@@ -51,6 +51,12 @@ public class QueryRepository {
                     "location_longitude AS longitude," +
                     "user_id AS user_id " +
                     "FROM ccp_location";
+
+    private static final String bringsCoordinates =
+            "SELECT location_latitude AS latitude," +
+                    "location_longitude AS longitude " +
+                    "FROM ccp_location " +
+                    "WHERE user_id = ?";
     //End Location
 
     //User
@@ -67,5 +73,7 @@ public class QueryRepository {
     public static String getOverlapLocation(){ return QueryRepository.overlapLocation; }
 
     public static String getBringsLocations(){ return QueryRepository.bringsLocations; }
+
+    public static String getBringsCoordinates(){ return bringsCoordinates; }
     //End Location
 }

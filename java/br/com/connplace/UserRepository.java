@@ -50,7 +50,7 @@ public class UserRepository{
                     new BeanPropertyRowMapper<User>(User.class), nameUser);
         }catch(Exception e){
 
-            e.printStackTrace();
+            //e.printStackTrace();
             return new User(-1,"","",0,"","");
         }
     }
